@@ -1,0 +1,37 @@
+header {
+  text-align: center;
+  background-color: #e9f0f3;
+  display: flex;
+
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  /* margin-left: 10vw; */
+  width: 7rem;
+  height: 7rem;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: #163c74;
+}
+
+/* Color palette for the app{
+#F1F6F8
+#E9F0F3
+#80B0CE
+#16A8DC
+#163C74
+
+pink
+#F78380
+
+} */

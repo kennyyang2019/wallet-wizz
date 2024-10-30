@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: "Quicksand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(#f1f6f8, #80b0ce);
+  background-color: #f1f6f8;
+  color: #e1eeeb;
+  min-height: 100vh;
+  margin-left: 15rem; /* Adjust as needed */
+  margin-right: 15rem; /* Adjust as needed */
+  margin-top: 0 /* Adjust as needed */
+}
+
+.center {
+  text-align: center;
+}
+
+/* Color palette for the app{
+#F1F6F8
+#E9F0F3
+#80B0CE
+#16A8DC
+#163C74
+
+pink
+#F78380
+
+} */
