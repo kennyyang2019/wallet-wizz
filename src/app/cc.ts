@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-import { Card, CCInfo } from '../card/card.model';
-
-import { CardComponent } from "../card/card.component";
-import { NewCardComponent } from "../new-card/new-card.component";
+import { CCInfo } from "./card/card.model";
 
 
-const creditCards: CCInfo = [
+export const creditCards: CCInfo = [
   {
     name: 'Chase Freedom Unlimited',
     cardIssuer: 'Chase',
@@ -299,27 +295,17 @@ const creditCards: CCInfo = [
     cardId: 'cc17',
   },
 ];
-@Component({
-  selector: 'app-main-view',
-  standalone: true,
-  imports: [CardComponent, NewCardComponent],
-  templateUrl: './main-view.component.html',
-  styleUrl: './main-view.component.css',
-})
 
 
-export class MainViewComponent {
-  cards: Card[] = [];
-  showForm = false;
+// const simpleCards =  creditCards.reduce((acc, curr) => {
+//   if (!acc[curr.cardIssuer]){
+//     acc[curr.cardIssuer] = [{cardId : curr.cardId, name: curr.name}]
+//   } else{
+//     acc[curr.cardIssuer].push({ cardId: curr.cardId, name: curr.name });
+//   }
+//   return acc;
+// },{})
 
-  onStartAddCard() {
-    this.showForm = true;
-  }
-  onCloseAddCard() {
-    this.showForm = false;
-  }
-  addCard(card: Card) {
-    this.cards.push(card);
-    this.showForm = false;
-  }
-}
+
+
+

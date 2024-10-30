@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Card, CCInfo } from '../card/card.model';
-
-import { CardComponent } from "../card/card.component";
-import { NewCardComponent } from "../new-card/new-card.component";
-
 
 const creditCards: CCInfo = [
   {
@@ -299,27 +302,54 @@ const creditCards: CCInfo = [
     cardId: 'cc17',
   },
 ];
+// const simpleCards =  creditCards.reduce((acc, curr) => {
+//   if (!acc[curr.cardIssuer]){
+//     acc[curr.cardIssuer] = [{cardId : curr.cardId, name: curr.name}]
+//   } else{
+//     acc[curr.cardIssuer].push({ cardId: curr.cardId, name: curr.name });
+//   }
+//   return acc;
+// },{})
+
 @Component({
-  selector: 'app-main-view',
+  selector: 'app-new-card',
   standalone: true,
-  imports: [CardComponent, NewCardComponent],
-  templateUrl: './main-view.component.html',
-  styleUrl: './main-view.component.css',
+  templateUrl: './new-card.component.html',
+  styleUrl: './new-card.component.css',
+  imports: [FormsModule],
 })
+export class NewCardComponent {
+  @Output() cancel = new EventEmitter<void>();
+  @Output() add = new EventEmitter<Card>();
+  issuer = '';
+  cardName = '';
+  issuers!: string[];
+  test = '';
 
-
-export class MainViewComponent {
-  cards: Card[] = [];
-  showForm = false;
-
-  onStartAddCard() {
-    this.showForm = true;
+  constructor() {
+    this.issuers = this.getIssuers()
   }
-  onCloseAddCard() {
-    this.showForm = false;
+  getIssuers(){
+    return creditCards.reduce((acc, curr: any) => {
+      if (!acc.includes(curr.name)) acc.push(curr.cardIssuer);
+      return acc;
+    }, []);
   }
-  addCard(card: Card) {
-    this.cards.push(card);
-    this.showForm = false;
+  onSelectionChange(event: Event) {
+    this.test = (event.target as HTMLSelectElement).value;
+    console.log('Selected value:', this.test);
+    console.log(creditCards);
+  }
+  onCancel() {
+    this.cancel.emit();
+  }
+  onSubmit() {
+    // console.log(this.issuer);
+    this.add.emit({
+      issuer: this.issuer,
+      cardName: this.cardName,
+    });
+    this.issuer = '';
+    this.cardName = '';
   }
 }

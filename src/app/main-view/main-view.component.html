@@ -1,17 +1,13 @@
-<!-- <div class="main-view">
-    <button (click)="toggleForm()">Add Card</button>
-    @if(showForm){
-        <app-add-card-form (cardAdded)="addCard($event)"></app-add-card-form>
-    }
-    <div>
-        @for (card of cards;track card.id){
-            <app-card [card]="card"></app-card>
-        }
-    </div>
-</div>  -->
+@if(showForm){
+      <app-new-card (cancel)="onCloseAddCard()" (add)="addCard($event)"></app-new-card>
 
-
-@if (showForm) {
-  <app-add-card-form (cardAdded)="addCard($event)"></app-add-card-form>
-    
 }
+<div class="main-view">
+     <button (click)="onStartAddCard()">Add Card</button>
+</div> 
+
+<!-- <div>
+    @for (card of cards;track card.id){
+        <app-card [card]="card"></app-card>
+    }
+</div> -->
