@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import { CCInfo, CCObj } from '../card/card.model';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
 
-import { CardComponent } from "../card/card.component";
-import { NewCardComponent } from "../new-card/new-card.component";
-
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CCInfo,CCObj } from '../card/card.model';
 
 const creditCards: CCInfo = [
   {
@@ -299,79 +302,57 @@ const creditCards: CCInfo = [
     cardId: 'cc17',
   },
 ];
-@Component({
-  selector: 'app-main-view',
-  standalone: true,
-  imports: [CardComponent, NewCardComponent],
-  templateUrl: './main-view.component.html',
-  styleUrl: './main-view.component.css',
-})
-export class MainViewComponent {
-  cards: CCInfo = [
-    {
-      name: 'Chase Sapphire Preferred Card',
-      cardIssuer: 'Chase',
-      annualFee: ['Annual Fee', '$95'],
-      aprInfo: ['Variable APR of 21.99%–28.99%.'],
-      newOffer: [
-        'Earn 60,000 bonus points after spending $4,000 in the first 3 months.',
-      ],
-      rewards: { travel: '5%', dining: '3%', other: '1%' },
-      rewardsInfo: [
-        'Earn 5% on travel through Chase Ultimate Rewards',
-        '3% on dining',
-        '2% on all other travel',
-        '1% on all other purchases',
-      ],
-      img: 'https://creditcards.chase.com/content/dam/jpmc-marketplace/card-art/sapphire_preferred_card.png',
-      cardId: 'cc7',
-    },
-    {
-      name: 'American Express Blue Cash Everyday Card',
-      cardIssuer: 'American Express',
-      annualFee: ['Annual Fee', '$0'],
-      aprInfo: [
-        '0% intro APR on purchases for 15 months, then 18.24%–29.24% variable APR.',
-      ],
-      newOffer: ['Earn $200 back after spending $2,000 in the first 6 months.'],
-      rewards: { groceries: '3%', gas: '2%', other: '1%' },
-      rewardsInfo: [
-        '3% on U.S. supermarkets (up to $6,000 per year)',
-        '2% on U.S. gas stations and select department stores',
-        '1% on other purchases',
-      ],
-      img: 'https://icm.aexp-static.com/acquisition/card-art/NUS000000305_480x304_straight_withname.png',
-      cardId: 'cc8',
-    },
-    {
-      name: 'Bank of America Travel Rewards Credit Card',
-      cardIssuer: 'Bank of America',
-      annualFee: ['Annual Fee', '$0'],
-      aprInfo: [
-        '0% intro APR for 18 billing cycles on purchases. After the intro period, a variable APR of 16.99%–26.99%.',
-      ],
-      newOffer: [
-        'Earn 25,000 online bonus points after spending $1,000 in the first 90 days.',
-      ],
-      rewards: { travel: '1.5%' },
-      rewardsInfo: ['Earn 1.5% for every $1 spent on all purchases'],
-      img: 'https://www.bankofamerica.com/content/images/ContextualSiteGraphics/CreditCardArt/en_US/Approved_PCM/8blm_trvsigcm_v_250x158.png',
-      cardId: 'cc9',
-    },
-  ];
-  showForm = false;
+// const simpleCards =  creditCards.reduce((acc, curr) => {
+//   if (!acc[curr.cardIssuer]){
+//     acc[curr.cardIssuer] = [{cardId : curr.cardId, name: curr.name}]
+//   } else{
+//     acc[curr.cardIssuer].push({ cardId: curr.cardId, name: curr.name });
+//   }
+//   return acc;
+// },{})
 
-  onStartAddCard() {
-    this.showForm = true;
+@Component({
+  selector: 'app-new-card',
+  standalone: true,
+  templateUrl: './new-card.component.html',
+  styleUrl: './new-card.component.css',
+  imports: [FormsModule],
+})
+export class NewCardComponent {
+  @Output() cancel = new EventEmitter<void>();
+  @Output() add = new EventEmitter<CCObj>();
+  issuer = '';
+  cardName = '';
+  issuers!: string[];
+  cardNameFromSelectedIssuer: string[] = []
+
+  constructor() {
+    this.issuers = this.getIssuers()
   }
-  onCloseAddCard() {
-    this.showForm = false;
+  getIssuers(){
+    return creditCards.reduce((acc: string[], curr: CCObj) => {
+      if (!acc.includes(curr.cardIssuer)) acc.push(curr.cardIssuer);
+      return acc;
+    }, [] as string[]);
   }
-  addCard(card: CCObj) {
-    console.log('hello I receive the card:::::', card);
-    this.cards.push(card);
-    this.showForm = false;
+  onSelectionChange(event: Event) {
+    this.cardNameFromSelectedIssuer = []
+    let selectedIssuer = (event.target as HTMLSelectElement).value;
+    creditCards.map(el => {
+      if(el.cardIssuer == selectedIssuer){
+        this.cardNameFromSelectedIssuer.push(el.name)
+      }
+    })
+
   }
- 
-  
+  onCancel() {
+    this.cancel.emit();
+  }
+  onSubmit() {
+
+    this.add.emit(creditCards.find(({name}) => name === this.cardName)
+);
+    this.issuer = '';
+    this.cardName = '';
+  }
 }

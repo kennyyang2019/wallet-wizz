@@ -1,0 +1,35 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<dialog open>
+  <h2>Add Card</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="issuer">Issuer</label>
+      <select
+        id="issuer"
+        name="issuer"
+        (change)="onSelectionChange($event)"
+        [(ngModel)]="issuer"
+      >
+        @for (issuer of issuers; track issuer){
+        <option value="{{ issuer }}">{{ issuer }}</option>
+        }
+      </select>
+    </p>
+
+    @if (cardNameFromSelectedIssuer.length > 0){
+    <p>
+      <label for="cardName">Card Name</label>
+      <select id="cardName" name="cardName" [(ngModel)]="cardName">
+        @for (card of cardNameFromSelectedIssuer; track card){
+        <option value="{{ card }}">{{ card }}</option>
+        }
+      </select>
+    </p>
+    }
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit">Add</button>
+    </p>
+  </form>
+</dialog>
