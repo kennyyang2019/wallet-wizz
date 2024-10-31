@@ -5,7 +5,7 @@
 }
 
 body {
-
+  margin: 0 10rem;
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,14 +13,16 @@ body {
   background-color: #f1f6f8;
   color: #e1eeeb;
   min-height: 100vh;
-  margin-left: 15rem; /* Adjust as needed */
-  margin-right: 15rem; /* Adjust as needed */
-  margin-top: 0 /* Adjust as needed */
+  /* margin-left: 15rem; 
+  margin-right: 15rem;  */
+  /* margin-top: 0 */
 }
 
 .center {
   text-align: center;
 }
+
+
 
 /* Color palette for the app{
 #F1F6F8

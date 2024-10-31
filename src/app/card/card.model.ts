@@ -1,16 +1,11 @@
-export type Card = {
-  issuer: string;
-  cardName: string;
-};
 
 export type SimpleCards = {
-  [issuer: string]: {
     cardId: string;
     name: string;
-  };
+    cardIssuer: string;
 };
 
-type CCObj = {
+export type CCObj = {
   cardId: string;
   name: string;
   cardIssuer: string;

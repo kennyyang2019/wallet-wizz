@@ -6,7 +6,7 @@ import {
 
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Card, CCInfo } from '../card/card.model';
+import { CCInfo,CCObj } from '../card/card.model';
 
 const creditCards: CCInfo = [
   {
@@ -320,35 +320,38 @@ const creditCards: CCInfo = [
 })
 export class NewCardComponent {
   @Output() cancel = new EventEmitter<void>();
-  @Output() add = new EventEmitter<Card>();
+  @Output() add = new EventEmitter<CCObj>();
   issuer = '';
   cardName = '';
   issuers!: string[];
-  test = '';
+  cardNameFromSelectedIssuer: string[] = []
 
   constructor() {
     this.issuers = this.getIssuers()
   }
   getIssuers(){
-    return creditCards.reduce((acc, curr: any) => {
-      if (!acc.includes(curr.name)) acc.push(curr.cardIssuer);
+    return creditCards.reduce((acc: string[], curr: CCObj) => {
+      if (!acc.includes(curr.cardIssuer)) acc.push(curr.cardIssuer);
       return acc;
-    }, []);
+    }, [] as string[]);
   }
   onSelectionChange(event: Event) {
-    this.test = (event.target as HTMLSelectElement).value;
-    console.log('Selected value:', this.test);
-    console.log(creditCards);
+    this.cardNameFromSelectedIssuer = []
+    let selectedIssuer = (event.target as HTMLSelectElement).value;
+    creditCards.map(el => {
+      if(el.cardIssuer == selectedIssuer){
+        this.cardNameFromSelectedIssuer.push(el.name)
+      }
+    })
+
   }
   onCancel() {
     this.cancel.emit();
   }
   onSubmit() {
-    // console.log(this.issuer);
-    this.add.emit({
-      issuer: this.issuer,
-      cardName: this.cardName,
-    });
+
+    this.add.emit(creditCards.find(({name}) => name === this.cardName)
+);
     this.issuer = '';
     this.cardName = '';
   }

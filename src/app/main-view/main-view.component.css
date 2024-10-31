@@ -1,3 +1,4 @@
-.main-view{
-    
+.your-cards {
+  display: flex;
+  overflow: auto;
 }

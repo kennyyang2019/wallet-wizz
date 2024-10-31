@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Card } from './card.model';
+import { CCObj } from './card.model';
 
 @Component({
   selector: 'app-card',
@@ -9,5 +9,5 @@ import { Card } from './card.model';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input() card!: Card;
+  @Input() card!: CCObj;
 }
