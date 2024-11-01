@@ -10,7 +10,7 @@
 dialog {
   width: 90%;
   max-width: 30rem;
-  background-color: #433352;
+  background-color:#163C74;
   border-radius: 6px;
   border: none;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
@@ -18,7 +18,17 @@ dialog {
   padding: 1rem;
   top: 5rem;
 }
+/* Color palette for the app{
+#F1F6F8
+#E9F0F3
+#80B0CE
+#16A8DC
+#163C74
 
+pink
+#F78380
+
+} */
 h2 {
   margin: 0;
   color: #d0c2e1;
@@ -31,15 +41,13 @@ label {
   color: #ab9ac0;
 }
 
-input,
-textarea,
 select {
   width: 100%;
   font: inherit;
   padding: 0.15rem 0.25rem;
   border-radius: 4px;
   border: 1px solid #ab9ac0;
-  background-color: #d0c2e1;
+  background-color: #E9F0F3
 }
 
 .actions {
@@ -59,28 +67,24 @@ button {
 }
 
 button[type="button"] {
-  color: #bdadcf;
+  color: #F1F6F8;
 }
 
 button[type="button"]:hover,
 button[type="button"]:active {
-  color: #d0c2e1;
+  color:#F1F6F8;
 }
 
 button[type="submit"] {
-  background-color: #9c73ca;
+  background-color:#F1F6F8;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover,
 button[type="submit"]:active {
-  background-color: #895cce;
+  background-color:#16A8DC;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-@media (min-width: 768px) {
-  dialog {
-    padding: 2rem;
-  }
-}
+

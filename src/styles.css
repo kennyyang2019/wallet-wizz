@@ -16,6 +16,7 @@ body {
   /* margin-left: 15rem; 
   margin-right: 15rem;  */
   /* margin-top: 0 */
+overflow-y: scroll
 }
 
 .center {

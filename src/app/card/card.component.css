@@ -1,4 +1,13 @@
+
+div{
+  padding: 7px
+}
 img {
   height: 7rem;
   padding: 5px;
+/* box-shadow: 0 15px 30px 1px grey; */
+}
+img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

@@ -1,12 +1,25 @@
 @if(showForm){
-      <app-new-card (cancel)="onCloseAddCard()" (add)="addCard($event)"></app-new-card>
+<app-new-card
+  (cancel)="onCloseAddCard()"
+  (add)="addCard($event)"
+></app-new-card>
 }
 <div>
-    <h3 style="color: black;">Your current wallet:</h3>
-    <div class="your-cards">
-    @for (card of cards;track card.cardId){
-        <app-card [card]="card"></app-card>
-        }
-    </div>
-    <button (click)="onStartAddCard()">Add Card</button>
+  <div class="first-row">
+    <h3 style="color: black; display: inline">Your current wallet:</h3>
+    <button class="custom-btn btn-1" (click)="onStartAddCard()">+</button>
+  </div>
+  <div class="your-cards">
+    @for (card of cards;track card; let index=$index){
+    <app-card
+      (selectIndex)="setSelectedIndex($event)"
+      [index]="index"
+      [card]="card"
+    ></app-card>
+    }
+  </div>
 </div>
+@if(selectedIndex || selectedIndex == 0){
+
+<app-card-slider [index]="selectedIndex" [currCards]="cards"></app-card-slider>
+}
