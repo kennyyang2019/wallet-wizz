@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CCObj } from './card.model';
 
 @Component({
@@ -6,8 +6,13 @@ import { CCObj } from './card.model';
   standalone: true,
   imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  styleUrl: './card.component.css',
 })
 export class CardComponent {
   @Input() card!: CCObj;
+  @Input() index!: number;
+  @Output() selectIndex = new EventEmitter<number>();
+  sendSelectedIndex() {
+    this.selectIndex.emit(this.index);
+  }
 }

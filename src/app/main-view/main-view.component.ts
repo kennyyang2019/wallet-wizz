@@ -361,15 +361,20 @@ export class MainViewComponent {
     // },
   ];
   showForm = false;
-
+  selectedIndex!: number | undefined
+  setSelectedIndex(index: number) {
+    this.selectedIndex = index;
+    // console.log("from mainview", index)
+  }
   onStartAddCard() {
+    this.selectedIndex =undefined
     this.showForm = true;
   }
   onCloseAddCard() {
     this.showForm = false;
   }
   addCard(card: CCObj) {
-    console.log('hello I receive the card:::::', card);
+
     this.cards.push(card);
     this.showForm = false;
   }

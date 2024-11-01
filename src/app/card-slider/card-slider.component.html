@@ -1,4 +1,12 @@
-<button type="button" (click)="onPrevious()" [disabled]="counter === 0">
+@if(index || index == 0){
+  <app-card-info [card]="currCards[index]"></app-card-info>
+}
+
+<!-- <div [@animImageSlider]="counter">
+  
+
+</div> -->
+<!-- <button type="button" (click)="onPrevious()" [disabled]="counter === 0">
   Previous
 </button>
 <button
@@ -7,14 +15,9 @@
   [disabled]="this.counter == this.images.length - 1"
 >
   Next
-</button>
-<div [@animImageSlider]="counter">
-  @for(image of images; track image){ 
-    @if(image == images[counter]){
-        <img src="{{image}}" style="height: 200px; width: 300px"  />
-  } }
-</div>
+</button> -->
 
-@if(currCards){
+<!-- @if(currCards){
   <button (click)="showCards()">Show cards</button>
-}
+} -->
+ 
