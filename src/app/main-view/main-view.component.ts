@@ -4,6 +4,7 @@ import { CCInfo, CCObj } from '../card/card.model';
 import { CardComponent } from "../card/card.component";
 import { NewCardComponent } from "../new-card/new-card.component";
 import { CardSliderComponent } from '../card-slider/card-slider.component';
+import { CardReccComponent } from '../card-recc/card-recc.component';
 
 
 const creditCards: CCInfo = [
@@ -303,7 +304,7 @@ const creditCards: CCInfo = [
 @Component({
   selector: 'app-main-view',
   standalone: true,
-  imports: [CardComponent, NewCardComponent, CardSliderComponent],
+  imports: [CardComponent, NewCardComponent, CardSliderComponent, CardReccComponent],
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.css',
 })
