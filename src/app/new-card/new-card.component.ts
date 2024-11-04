@@ -20,7 +20,7 @@ const creditCards: CCInfo = [
       'NEW CARDMEMBER OFFER',
       'Earn a $200 bonus after spending $500 in the first 3 months from account opening.',
     ],
-    rewards: { dining: '3%', drugstore: '3%', travel: '5%', other: '1.5%' },
+    rewards: { dining: 3, drugstore: 3, travel: 5, allOtherPurchases: 1.5 },
     rewardsInfo: [
       'Earn 5% on travel through Chase Travel',
       '3% on dining and drugstores',
@@ -40,7 +40,7 @@ const creditCards: CCInfo = [
       'INTRO OFFER',
       'Earn cash back twice: 1% when you buy and 1% as you pay.',
     ],
-    rewards: { allPurchases: '2%' },
+    rewards: { allOtherPurchases: 2 },
     rewardsInfo: [
       'Earn 1% cash back on purchases',
       '1% as you pay for those purchases',
@@ -56,7 +56,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 60,000 Membership Rewards Points after spending $4,000 in the first 6 months.',
     ],
-    rewards: { dining: '4%', travel: '3%', other: '1%' },
+    rewards: { dining: 4, travel: 3, allOtherPurchases: 1 },
     rewardsInfo: [
       '4% points on restaurants',
       '3% points on flights',
@@ -73,7 +73,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 75,000 bonus miles after spending $4,000 in the first 3 months.',
     ],
-    rewards: { travel: '5%', allPurchases: '2%' },
+    rewards: { travel: 5, allOtherPurchases: 2 },
     rewardsInfo: [
       'Earn 5% on hotels and rental cars through Capital One Travel',
       '2% on all other purchases',
@@ -91,7 +91,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn a $200 cash rewards bonus after spending $1,000 in the first 3 months.',
     ],
-    rewards: { allPurchases: '2%' },
+    rewards: { allOtherPurchases: 2 },
     rewardsInfo: ['Earn unlimited 2% cash rewards on purchases'],
     img: 'https://creditcards.wellsfargo.com/W-Card-MarketPlace/v10-17-24/images/Products/ActiveCash/WF_ActiveCash_VS_Collateral_Front_RGB.png',
     cardId: 'cc5',
@@ -104,7 +104,7 @@ const creditCards: CCInfo = [
       '0% intro APR on purchases for 12 months. 18.24%–28.24% variable APR after.',
     ],
     newOffer: ['Earn $250 back after spending $3,000 in the first 6 months.'],
-    rewards: { groceries: '6%', gas: '3%', transit: '3%', other: '1%' },
+    rewards: { groceries: 6, gas: 3, travel: 3, allOtherPurchases: 1 },
     rewardsInfo: [
       '6% on U.S. supermarkets (up to $6,000 per year)',
       '3% on transit',
@@ -122,7 +122,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 60,000 bonus points after spending $4,000 in the first 3 months.',
     ],
-    rewards: { travel: '5%', dining: '3%', other: '1%' },
+    rewards: { travel: 5, dining: 3, allOtherPurchases: 1 },
     rewardsInfo: [
       'Earn 5% on travel through Chase Ultimate Rewards',
       '3% on dining',
@@ -140,7 +140,7 @@ const creditCards: CCInfo = [
       '0% intro APR on purchases for 15 months, then 18.24%–29.24% variable APR.',
     ],
     newOffer: ['Earn $200 back after spending $2,000 in the first 6 months.'],
-    rewards: { groceries: '3%', gas: '2%', other: '1%' },
+    rewards: { groceries: 3, gas: 2, allOtherPurchases: 1 },
     rewardsInfo: [
       '3% on U.S. supermarkets (up to $6,000 per year)',
       '2% on U.S. gas stations and select department stores',
@@ -159,7 +159,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 25,000 online bonus points after spending $1,000 in the first 90 days.',
     ],
-    rewards: { travel: '1.5%' },
+    rewards: { travel: 1.5 },
     rewardsInfo: ['Earn 1.5% for every $1 spent on all purchases'],
     img: 'https://www.bankofamerica.com/content/images/ContextualSiteGraphics/CreditCardArt/en_US/Approved_PCM/8blm_trvsigcm_v_250x158.png',
     cardId: 'cc9',
@@ -174,7 +174,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn a one-time $200 cash bonus after spending $500 in the first 3 months.',
     ],
-    rewards: { allPurchases: '1.5%' },
+    rewards: { allOtherPurchases: 1.5 },
     rewardsInfo: ['Earn unlimited 1.5% cash back on every purchase'],
     img: 'https://ecm.capitalone.com/WCM/card/products/qs_cardart_prim_323x203.png',
     cardId: 'cc10',
@@ -189,7 +189,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Cashback Match: Discover will match all the cash back you’ve earned at the end of your first year.',
     ],
-    rewards: { allPurchases: '1%' },
+    rewards: { allOtherPurchases: 1 },
     rewardsInfo: ['Earn 1% cash back on all purchases'],
     img: 'https://www.discover.com/company/images/newsroom/media-downloads/discover-it.png',
     cardId: 'cc11',
@@ -202,7 +202,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 60,000 bonus points after spending $4,000 in the first 3 months.',
     ],
-    rewards: { travel: '10%', dining: '3%', other: '1%' },
+    rewards: { travel: 10, dining: 3, allOtherPurchases: 1 },
     rewardsInfo: [
       '10% on travel through Chase Ultimate Rewards',
       '3% on dining',
@@ -219,7 +219,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 75,000 miles after spending $4,000 in the first 3 months.',
     ],
-    rewards: { travel: '10%', allPurchases: '2%' },
+    rewards: { travel: 10, allOtherPurchases: 2 },
     rewardsInfo: [
       '10% on hotels and rental cars through Capital One Travel',
       '2% on all other purchases',
@@ -235,7 +235,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 45,000 Membership Rewards Points after spending $2,000 in the first 6 months.',
     ],
-    rewards: { travel: '3%', transit: '3%', other: '1%' },
+    rewards: { travel: 3, allOtherPurchases: 1 },
     rewardsInfo: ['3% on travel and transit', '1% on all other purchases'],
     img: 'https://icm.aexp-static.com/acquisition/card-art/NUS000000274_480x304_straight_withname.png',
     cardId: 'cc14',
@@ -250,13 +250,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn $750 bonus cash back after spending $6,000 in the first 3 months.',
     ],
-    rewards: {
-      officeSupplies: '5%',
-      internet: '5%',
-      dining: '2%',
-      gas: '2%',
-      other: '1%',
-    },
+    rewards: { officeExpenses: 5, dining: 2, gas: 2, allOtherPurchases: 1 },
     rewardsInfo: [
       '5% on office supplies and internet services',
       '2% on dining and gas',
@@ -275,7 +269,7 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 20,000 ThankYou Points after spending $1,500 in the first 3 months.',
     ],
-    rewards: { dining: '2%', supermarkets: '2%', other: '1%' },
+    rewards: { dining: 2, groceries: 2, allOtherPurchases: 1 },
     rewardsInfo: [
       '2% at supermarkets and restaurants',
       '1% on all other purchases',
@@ -292,12 +286,8 @@ const creditCards: CCInfo = [
     newOffer: [
       'Earn 50,000 online bonus points after spending $3,000 in the first 90 days.',
     ],
-    rewards: { travel: '2%', dining: '2%', other: '1.5%' },
-    rewardsInfo: [
-      '2% on travel and dining',
-      '1.5% on all other purchases',
-      'Earn 1.5 points on all other purchases',
-    ],
+    rewards: { travel: 2, dining: 2, allOtherPurchases: 1.5 },
+    rewardsInfo: ['2% on travel and dining', '1.5% on all other purchases'],
     img: 'https://www.bankofamerica.com/content/images/ContextualSiteGraphics/CreditCardArt/en_US/Approved_PCM/bofa_prmsigcm_255x158.png',
     cardId: 'cc17',
   },

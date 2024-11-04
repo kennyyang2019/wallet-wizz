@@ -22,6 +22,9 @@
 @if(selectedIndex || selectedIndex == 0){
 <app-card-slider [index]="selectedIndex" [currCards]="cards"></app-card-slider>
 }
-@if(cards.length > 0){
+@if(cards.length > 0  ){
   <app-card-recc [cards]="cards"></app-card-recc>
 }
+<!-- @if(selectedIndex || selectedIndex == 0  && cards.length > 0  ){
+  <app-card-recc [cards]="cards"></app-card-recc>
+} -->
