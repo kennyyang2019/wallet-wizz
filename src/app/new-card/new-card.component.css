@@ -1,5 +1,5 @@
 .backdrop {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 2, 26, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ dialog {
   background-color:#163C74;
   border-radius: 6px;
   border: none;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 6px rgba(38, 23, 84, 0.4);
   overflow: hidden;
   padding: 1rem;
   top: 5rem;

@@ -1,0 +1,46 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Categories</th>
+        <th>🥇 Place</th>
+        <th>🥈 Place</th>
+        <th>🥉 Place</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (category of categories; track category) {
+        <tr>
+          <td>{{ category }}</td>
+          @for (card of result[category].slice(0, 3); track card.name; let i = $index) {
+            <td>
+              @if (card) {
+                <div>
+                  <img [src]="card.img" [alt]="card.name" [title]="card.name"/>
+                  <p>{{ card.cashback }}% Cashback</p>
+                </div>
+              } @else {
+                <div>
+                  <p>N/A</p>
+                </div>
+              }
+            </td>
+          }
+          <!-- Fill remaining places if less than 3 cards -->
+          @for (empty of [].constructor(3 - result[category].length); track $index) {
+            <td>
+              <div>
+                <p>N/A</p>
+              </div>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+
+<button (click)="showCards()">Show</button>
+

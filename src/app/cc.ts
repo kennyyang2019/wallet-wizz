@@ -296,7 +296,6 @@ export const creditCards: CCInfo = [
   },
 ];
 
-
 // const simpleCards =  creditCards.reduce((acc, curr) => {
 //   if (!acc[curr.cardIssuer]){
 //     acc[curr.cardIssuer] = [{cardId : curr.cardId, name: curr.name}]
@@ -305,6 +304,7 @@ export const creditCards: CCInfo = [
 //   }
 //   return acc;
 // },{})
+
 
 
 

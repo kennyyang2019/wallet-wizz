@@ -12,8 +12,17 @@ export type CCObj = {
   annualFee: [string, string];
   aprInfo: string[];
   newOffer: string[];
-  rewards: { [category: string]: string };
+  rewards: { [category: string]: number };
   rewardsInfo: string[];
   img: string;
 };
 export type CCInfo = CCObj[];
+
+export type CardReccInfo = {
+  name: string;
+  img: string;
+  cashback: number
+}
+
+export type ResultType = {
+  [category: string]: CardReccInfo[]};
