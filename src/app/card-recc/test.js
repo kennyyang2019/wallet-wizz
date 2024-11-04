@@ -602,4 +602,23 @@ let categories = cc1.reduce((acc, curr) => {
 
 // // let data = creditCards.reduce((acc, curr) => {},{})
 
+let result = {};
+
+categories.forEach((category) => {
+  // Filter and sort the cards based on cashback value in the current category
+  let filteredCards = cc1
+    .filter((card) => card.rewards[category] !== undefined)
+    .sort((a, b) => b.rewards[category] - a.rewards[category]) // Sort in descending order
+    .slice(0, 3) // Get the top 3 cards
+    .map((card) => ({
+      name: card.name,
+      img: card.img,
+      cashback: card.rewards[category]
+    }));
+
+  result[category] = filteredCards;
+});
+
+console.log(result);
+
 
