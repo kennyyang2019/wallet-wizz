@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap");
+ */
 
 
 #container {
@@ -25,7 +25,7 @@
 }
 
 #container .product-details h1 {
-  font-family: "Bebas Neue", cursive;
+
   display: inline-block;
   position: relative;
   font-size: 30px;
@@ -35,13 +35,15 @@
 
 
 #container .product-details > p {
-  font-family: "EB Garamond", serif;
+  /* font-family: "EB Garamond", serif; */
+   font:inherit;
   text-align: center;
   font-size: 18px;
   color: #7d7d7d;
 }
 .reward {
-  font-family: "Bree Serif", serif;
+  /* font-family: "Bree Serif", serif; */
+   font:inherit;
   color: #163C74
  
 }
@@ -68,7 +70,10 @@
 
 .info {
   background: rgba(27, 26, 26, 0.9);
-  font-family: "Bree Serif", serif;
+  /* font-family: "Bree Serif", serif;
+   */
+
+   font:inherit;
   transition: all 1.0s ease-out;
   transform: translateX(-100%);
   position: absolute;
