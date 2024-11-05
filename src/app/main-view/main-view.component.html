@@ -11,20 +11,18 @@
   </div>
   <div class="your-cards">
     @for (card of cards;track card; let index=$index){
-      <app-card
+    <app-card
       (selectIndex)="setSelectedIndex($event)"
       [index]="index"
       [card]="card"
-      ></app-card>
+    ></app-card>
     }
   </div>
 </div>
 @if(selectedIndex || selectedIndex == 0){
 <app-card-slider [index]="selectedIndex" [currCards]="cards"></app-card-slider>
+} 
+
+@if( selectedIndex || selectedIndex == 0 && cards.length > 0 ){
+<app-card-recc [cards]="cards"></app-card-recc>
 }
-@if(cards.length > 0  ){
-  <app-card-recc [cards]="cards"></app-card-recc>
-}
-<!-- @if(selectedIndex || selectedIndex == 0  && cards.length > 0  ){
-  <app-card-recc [cards]="cards"></app-card-recc>
-} -->

@@ -57,6 +57,7 @@ export class MainViewComponent {
   ];
   showForm = false;
   selectedIndex!: number | undefined;
+  
   setSelectedIndex(index: number) {
     this.selectedIndex = index;
     // console.log("from mainview", index)
@@ -72,4 +73,6 @@ export class MainViewComponent {
     this.cards.push(card);
     this.showForm = false;
   }
+
+  
 }

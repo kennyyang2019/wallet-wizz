@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit  } from '@angular/core';
 import { CCInfo, CCObj, ResultType } from '../card/card.model';
 
 @Component({
@@ -12,13 +12,13 @@ export class CardReccComponent implements OnInit {
   @Input() cards!: CCInfo;
   categories: string[] = [];
   result: ResultType = {};
-  
-  
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadResults();
   }
+
+
   loadCategories() {
     this.categories = this.cards.reduce((acc: string[], curr: CCObj) => {
       for (const key in curr.rewards) {
@@ -28,9 +28,8 @@ export class CardReccComponent implements OnInit {
       }
       return acc;
     }, [] as string[]);
-
   }
-  loadResults(){
+  loadResults() {
     this.categories.forEach((category) => {
       // Filter and sort the cards based on cashback value in the current category
       let filteredCards = this.cards
@@ -46,10 +45,10 @@ export class CardReccComponent implements OnInit {
       this.result[category] = filteredCards;
     });
   }
-  showCards(){
-    console.log(this.categories)
-    console.log(this.result)
-    console.log(this.cards)
+  showCards() {
+    console.log(this.categories);
+    console.log(this.result);
+    console.log(this.cards);
     this.loadCategories();
     this.loadResults();
   }
