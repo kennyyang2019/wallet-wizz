@@ -32,7 +32,9 @@ thead {
     background-color: #16A8DC
   }
 }
-
+tbody{
+  padding-top: 10rem;
+}
 tbody {
   tr {
     &:hover {
